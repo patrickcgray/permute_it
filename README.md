@@ -1,4 +1,4 @@
-###Agar Man: Anagram Finder
+###permute_it: Permutation Builder
 
 ####Summary:
 This program will:
