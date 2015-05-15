@@ -17,13 +17,13 @@ class PermutationBuilder(object):
             return [s]
 
         # recursively go in and find all substring permutations, slicing first char each time
-        past_perms=self.build_permutations(s[1:])
+        substring_perms=self.build_permutations(s[1:])
 
         # getting the sliced first char off current string
         first_char=s[0]
         current_perms=[]
-        for p in past_perms:
-            # iterate through past perms and add the sliced first char in all locations
+        for p in substring_perms:
+            # iterate through substring perms and add the sliced first char in all locations
             for i in range(len(p)+1):
                 current_perms.append(p[:i] + first_char + p[i:])
         return current_perms
