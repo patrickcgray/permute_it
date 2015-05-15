@@ -9,18 +9,21 @@ Created on May, 14 2015
 import argparse
 
 class PermutationBuilder(object):
-    def __init__(self):
-        pass
 
+    # recursively find all permutations of string s
     def build_permutations(self, s):
-        #find all permutations of string s
+        # base case
         if len(s)==1:
             return [s]
 
+        # recursively go in and find all substring permutations, slicing first char each time
         past_perms=self.build_permutations(s[1:])
+
+        # getting the sliced first char off current string
         first_char=s[0]
         current_perms=[]
         for p in past_perms:
+            # iterate through past perms and add the sliced first char in all locations
             for i in range(len(p)+1):
                 current_perms.append(p[:i] + first_char + p[i:])
         return current_perms
